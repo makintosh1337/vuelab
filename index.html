@@ -6,8 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="js/vue.js"></script>
     <script defer src="js/main.js"></script>
+
     <title>Product App</title>
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <title>Product App</title>
+
 </head>
 <body>
 <div id="app">
@@ -27,10 +32,10 @@
         <p>{{ variant.variantColor }}</p>
     </div>
 
-
     <div class="product-image">
         <img v-bind:src="image" v-bind:alt="altText"/>
     </div>
+
 
     <div class="sizes">
         <h2>Available Sizes:</h2>
@@ -38,6 +43,7 @@
             <li v-for="size in sizes" :key="size">{{ size }}</li>
         </ul>
     </div>
+
 
     <a v-bind:href="link" target="_blank">More products like this</a>
 </div>
