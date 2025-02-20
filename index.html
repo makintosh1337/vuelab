@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no,
-initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="js/vue.js"></script>
     <script defer src="js/main.js"></script>
@@ -11,16 +11,19 @@ initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
 <div id="app">
-    <h1>{{ product }}</h1>
+    <h1>{{ product }} <span v-if="onSale" class="sale">On Sale!</span></h1>
+
+    <p v-if="inventory > 10">In Stock</p>
+    <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+    <p v-else>Out of Stock</p>
+
     <p>{{ description }}</p>
+
     <div class="product-image">
         <img v-bind:src="image" v-bind:alt="altText"/>
     </div>
-    <div class="product-info">
-        <h1>{{ product }}</h1>
-    </div>
+
     <a v-bind:href="link" target="_blank">More products like this</a>
 </div>
-
 </body>
 </html>
