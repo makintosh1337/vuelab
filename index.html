@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no,
+          initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="js/vue.js"></script>
+    <script defer src="js/main.js"></script>
+    <title>Product App</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="app">
+    <h1>{{ product }} <span v-if="onSale" class="sale">On Sale!</span></h1>
+
+    <p v-if="inventory > 10">In Stock</p>
+    <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
+    <p v-else>Out of Stock</p>
+
+    <p>{{ description }}</p>
+
+    <ul>
+        <li v-for="detail in details" :key="detail">{{ detail }}</li>
+    </ul>
+
+    <div v-for="variant in variants" :key="variant.variantId">
+        <p>{{ variant.variantColor }}</p>
+    </div>
+
+
+    <div class="product-image">
+        <img v-bind:src="image" v-bind:alt="altText"/>
+    </div>
+
+    <div class="sizes">
+        <h2>Available Sizes:</h2>
+        <ul>
+            <li v-for="size in sizes" :key="size">{{ size }}</li>
+        </ul>
+    </div>
+
+    <a v-bind:href="link" target="_blank">More products like this</a>
+</div>
+</body>
+</html>
