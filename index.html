@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,12 +10,17 @@
     <script defer src="js/main.js"></script>
     <title>Product App</title>
     <link rel="stylesheet" href="css/main.css">
-    <title>Product App</title>
-
 </head>
 <body>
 <div id="app">
-    <product :premium="premium"></product>
+    <div class="cart">
+        <p>Cart ({{ cart.length }})</p>
+    </div>
+    <product
+            :premium="premium"
+            @add-to-cart="updateCart"
+            @remove-from-cart="removeFromCart"
+    ></product>
 </div>
 </body>
 </html>
